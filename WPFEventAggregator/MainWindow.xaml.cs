@@ -37,6 +37,8 @@ namespace WPFEventAggregator
 
             this.QuitCommand = new CommandBase(this.OnQuit, () => true);
             this.StartCommand = new CommandBase(this.OnStart);
+            this.ChangeDialogCommand = new CommandBase(this.OnChangeDialog);
+
             this.InformationCommand = new CommandBase(this.OnInformationPopup);
             this.CloseInformationPopupCommand = new CommandBase(this.OnCloseInformation);
             this.SettingsCommand = new CommandBase(this.OnSettingsPopup);
@@ -52,6 +54,7 @@ namespace WPFEventAggregator
         #region Commands
         public CommandBase QuitCommand { get; private set; }
         public CommandBase StartCommand { get; private set; }
+        public CommandBase ChangeDialogCommand { get; private set; }
         public CommandBase InformationCommand { get; private set; }
         public CommandBase CloseInformationPopupCommand { get; private set; }
         public CommandBase SettingsCommand { get; private set; }
@@ -151,6 +154,11 @@ namespace WPFEventAggregator
             this.ChangeControl("Demo");
         }
 
+        private void OnChangeDialog()
+        {
+            this.ChangeControl("Home");
+        }
+
         private void OnInformationPopup()
         {
             this.InformationPopup.SetValue(MaskLayerBehavior.IsOpenProperty, true);
@@ -175,6 +183,9 @@ namespace WPFEventAggregator
         private void ChangeControl(string currentWorkContent)
         {
             this.Dispatcher.Invoke(() => Mouse.OverrideCursor = Cursors.Wait);
+
+            this.WorkContentLeft = null;
+            this.WorkContentRight = null;
 
             if (currentWorkContent == "Home")
             {

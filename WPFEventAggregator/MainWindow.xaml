@@ -128,7 +128,7 @@
                     Height="50"
                     Margin="5,0,0,0"
                     HorizontalAlignment="Left"
-                    Command="{Binding Path=StartCommand}"
+                    Command="{Binding Path=ChangeDialogCommand}"
                     ToolTip="Click ausführen">
                     <Image Source="{StaticResource ResourceKey=IconChangeDialog}" Stretch="Uniform" />
                 </Button>
