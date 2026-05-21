@@ -1,4 +1,4 @@
-# MinimalWPF Projekt Template
+# WPF EventAggregator
 
 ![NET](https://img.shields.io/badge/NET-10-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
