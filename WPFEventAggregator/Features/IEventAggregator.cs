@@ -6,6 +6,6 @@
     {
         IDisposable Subscribe<TEvent>(Func<TEvent, CancellationToken, ValueTask> handler);
 
-        ValueTask PublishAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default);
+        ValueTask PublishAsync<TEvent>(TEvent eventItem, CancellationToken cancellationToken = default);
     }
 }

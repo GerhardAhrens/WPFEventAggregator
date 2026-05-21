@@ -18,7 +18,7 @@
 
     <Grid x:Name="gridMain">
         <Grid.RowDefinitions>
-            <RowDefinition Height="35" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
             <RowDefinition Height="35" />
         </Grid.RowDefinitions>
@@ -104,46 +104,106 @@
         <Border BorderBrush="DarkGray" BorderThickness="0,0,0,2">
             <DockPanel Grid.Row="0" Grid.Column="0">
                 <Button
-                    Width="30"
-                    Height="30"
+                    Width="50"
+                    Height="50"
                     Margin="5,0,0,0"
                     HorizontalAlignment="Left"
                     Command="{Binding Path=QuitCommand}"
                     ToolTip="Close Application">
-                    <Image Source="{StaticResource ResourceKey=IconApplicationExit2}" Stretch="None" />
+                    <Image Source="{StaticResource ResourceKey=IconApplicationEnd}" Stretch="Uniform" />
                 </Button>
 
                 <Button
-                    Width="30"
-                    Height="30"
+                    Width="50"
+                    Height="50"
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Left"
+                    Command="{Binding Path=StartCommand}"
+                    ToolTip="Click ausführen">
+                    <Image Source="{StaticResource ResourceKey=IconEventAggregator}" Stretch="Uniform" />
+                </Button>
+
+                <Button
+                    Width="60"
+                    Height="50"
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Left"
+                    Command="{Binding Path=StartCommand}"
+                    ToolTip="Click ausführen">
+                    <Image Source="{StaticResource ResourceKey=IconChangeDialog}" Stretch="Uniform" />
+                </Button>
+
+                <Button
+                    Width="50"
+                    Height="50"
                     Margin="0,0,5,0"
                     HorizontalAlignment="Right"
                     Command="{Binding Path=InformationCommand}"
                     DockPanel.Dock="Right"
                     ToolTip="Info anzeigen">
-                    <Image Source="{StaticResource ResourceKey=IconInformation}" Stretch="None" />
+                    <Image Source="{StaticResource ResourceKey=IconApplicationInformation}" Stretch="None" />
                 </Button>
 
                 <Button
-                    Width="30"
-                    Height="30"
+                    Width="50"
+                    Height="50"
                     Margin="0,0,5,0"
                     HorizontalAlignment="Right"
                     Command="{Binding Path=SettingsCommand}"
                     DockPanel.Dock="Right"
                     ToolTip="Einstellungen bearbeiten">
-                    <Image Source="{StaticResource ResourceKey=IconSettings}" Stretch="None" />
+                    <Image Source="{StaticResource ResourceKey=ApplicationSettingsIcon}" Stretch="Fill" />
                 </Button>
             </DockPanel>
         </Border>
 
-        <TextBlock
+        <Grid
             Grid.Row="1"
             Grid.Column="0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="24"
-            Text="{Binding Path=WindowTitel, FallbackValue=~WindowTitel}" />
+            ColumnDefinitions="*,*"
+            RowDefinitions="*">
+            <!--#region Contentbereich-->
+            <Border
+                x:Name="BorderLeft"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch"
+                Background="White"
+                BorderBrush="Black"
+                BorderThickness="0,1,1,1">
+                <ContentControl
+                    x:Name="mainContentLeft"
+                    Margin="3"
+                    Background="LightGray"
+                    Content="{Binding Path=WorkContentLeft, UpdateSourceTrigger=PropertyChanged}"
+                    ScrollViewer.CanContentScroll="True"
+                    VirtualizingPanel.IsVirtualizing="True"
+                    Visibility="Visible" />
+            </Border>
+
+            <Border
+                x:Name="BorderRight"
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                Background="White"
+                BorderBrush="Black"
+                BorderThickness="1,1,0,1"
+                Visibility="Visible">
+                <ContentControl
+                    x:Name="mainContentRight"
+                    Margin="3"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="LightGray"
+                    Content="{Binding Path=WorkContentRight, UpdateSourceTrigger=PropertyChanged}"
+                    ScrollViewer.CanContentScroll="True"
+                    VirtualizingPanel.IsVirtualizing="True"
+                    Visibility="Visible" />
+            </Border>
+            <!--#endregion Contentbereich-->
+        </Grid>
 
         <!--#region Statuszeile-->
         <StatusBar

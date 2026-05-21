@@ -29,6 +29,9 @@
             this.FontFamily = new FontFamily("Tahoma");
             this.FontWeight = FontWeights.Medium;
             this.className = this.GetType().Name;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.WindowStyle = WindowStyle.SingleBorderWindow;
+            this.ResizeMode = ResizeMode.CanResizeWithGrip;
         }
 
 
