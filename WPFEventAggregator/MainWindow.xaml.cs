@@ -21,6 +21,7 @@ namespace WPFEventAggregator
     using System.Windows.Input;
 
     using WPFEventAggregator.Beispiele;
+    using WPFEventAggregator.Features;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -38,6 +39,7 @@ namespace WPFEventAggregator
             this.QuitCommand = new CommandBase(this.OnQuit, () => true);
             this.StartCommand = new CommandBase(this.OnStart);
             this.ChangeDialogCommand = new CommandBase(this.OnChangeDialog);
+            this.SendMessageCommand = new CommandBase(this.OnSendMessage);
 
             this.InformationCommand = new CommandBase(this.OnInformationPopup);
             this.CloseInformationPopupCommand = new CommandBase(this.OnCloseInformation);
@@ -49,12 +51,28 @@ namespace WPFEventAggregator
             this.LaufzeitVersion = base.RuntimeVersion;
             this.WinVersion = base.WindowsVersion;
             this.DataContext = this;
+
+            var subscriptionMessage = App.EventAgg.Subscribe<MessageEvent>(async (evt, ct) =>
+            {
+                await Task.Delay(10, ct);
+                this.Message.Hinweis("Event Aggregator Demo", evt.Message);
+            });
+
+        }
+
+        private async void OnSendMessage()
+        {
+            if (App.EventAgg.IsSubscription<MessageEvent>() == true)
+            {
+                await App.EventAgg.PublishAsync(new MessageEvent(Guid.NewGuid(), "Das ist eine Nachricht mit dem Event Aggregator"));
+            }
         }
 
         #region Commands
         public CommandBase QuitCommand { get; private set; }
         public CommandBase StartCommand { get; private set; }
         public CommandBase ChangeDialogCommand { get; private set; }
+        public CommandBase SendMessageCommand { get; private set; }
         public CommandBase InformationCommand { get; private set; }
         public CommandBase CloseInformationPopupCommand { get; private set; }
         public CommandBase SettingsCommand { get; private set; }

@@ -25,6 +25,7 @@ namespace WPFEventAggregator
     using System.Windows.Threading;
 
     using WPFEventAggregator.Beispiele;
+    using WPFEventAggregator.Features;
 
     /// <summary>
     /// Interaction logic for App.xaml
@@ -70,6 +71,8 @@ namespace WPFEventAggregator
                 ApplicationExit();
             }
         }
+
+        public static EventAggregator EventAgg { get; } = new();
 
         /// <summary>
         /// Verwaltet die Startlogik der Anwendung, einschließlich der Initialisierung der Ländereinstellungen und der Konfiguration der Benutzereinstellungen.

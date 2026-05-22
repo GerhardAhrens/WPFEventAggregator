@@ -80,7 +80,372 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
-    <!--#region Farbige Icon Symbole-->
+    <!--#region Farbige Icon Symbole auf Basis von DrawingImage-->
+    <DrawingImage x:Key="IconHome">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+
+                <!--  Hausdach  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="2,11">
+                                <LineSegment Point="12,2" />
+                                <LineSegment Point="22,11" />
+                                <LineSegment Point="19,11" />
+                                <LineSegment Point="12,5" />
+                                <LineSegment Point="5,11" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Hauskörper  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="5,10,14,12" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Tür  -->
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="10,15,4,7" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Fenster links  -->
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="7,13,2.5,2.5" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Fenster rechts  -->
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="14.5,13,2.5,2.5" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="IconChat">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+
+                <!--  Hintere Sprechblase  -->
+                <GeometryDrawing Brush="#FFD6D6D6">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="11,3">
+                                <LineSegment Point="21,3" />
+                                <QuadraticBezierSegment Point1="24,3" Point2="24,6" />
+                                <LineSegment Point="24,14" />
+                                <QuadraticBezierSegment Point1="24,17" Point2="21,17" />
+                                <LineSegment Point="17,17" />
+                                <LineSegment Point="13,21" />
+                                <LineSegment Point="13,17" />
+                                <LineSegment Point="11,17" />
+                                <QuadraticBezierSegment Point1="8,17" Point2="8,14" />
+                                <LineSegment Point="8,6" />
+                                <QuadraticBezierSegment Point1="8,3" Point2="11,3" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Vordere Sprechblase  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="4,7">
+                                <LineSegment Point="17,7" />
+                                <QuadraticBezierSegment Point1="20,7" Point2="20,10" />
+                                <LineSegment Point="20,18" />
+                                <QuadraticBezierSegment Point1="20,21" Point2="17,21" />
+                                <LineSegment Point="10,21" />
+                                <LineSegment Point="6,24" />
+                                <LineSegment Point="6,21" />
+                                <LineSegment Point="4,21" />
+                                <QuadraticBezierSegment Point1="1,21" Point2="1,18" />
+                                <LineSegment Point="1,10" />
+                                <QuadraticBezierSegment Point1="1,7" Point2="4,7" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Chatpunkte  -->
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <EllipseGeometry
+                            Center="7,14"
+                            RadiusX="1.4"
+                            RadiusY="1.4" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <EllipseGeometry
+                            Center="11,14"
+                            RadiusX="1.4"
+                            RadiusY="1.4" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <EllipseGeometry
+                            Center="15,14"
+                            RadiusX="1.4"
+                            RadiusY="1.4" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="IconMessageNew">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+
+                <!--  Sprechblase  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="5,2">
+                                <!--  Obere Kante  -->
+                                <LineSegment Point="19,2" />
+
+                                <!--  Rechte obere Rundung  -->
+                                <QuadraticBezierSegment Point1="22,2" Point2="22,5" />
+
+                                <!--  Rechte Seite  -->
+                                <LineSegment Point="22,15" />
+
+                                <!--  Rechte untere Rundung  -->
+                                <QuadraticBezierSegment Point1="22,18" Point2="19,18" />
+
+                                <!--  Spitze  -->
+                                <LineSegment Point="13,18" />
+                                <LineSegment Point="10,22" />
+                                <LineSegment Point="10,18" />
+
+                                <!--  Linke untere Rundung  -->
+                                <LineSegment Point="5,18" />
+                                <QuadraticBezierSegment Point1="2,18" Point2="2,15" />
+
+                                <!--  Linke Seite  -->
+                                <LineSegment Point="2,5" />
+
+                                <!--  Linke obere Rundung  -->
+                                <QuadraticBezierSegment Point1="2,2" Point2="5,2" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Nachrichtenzeilen  -->
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="6,7,12,1.5" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="6,11,8,1.5" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="IconFactoryPattern">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+
+                <!--  Zentrale Factory  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="9,7">
+
+                                <!--  Obere Kante  -->
+                                <LineSegment Point="15,7" />
+
+                                <!--  Rechte obere Rundung  -->
+                                <QuadraticBezierSegment Point1="17,7" Point2="17,9" />
+
+                                <!--  Rechte Seite  -->
+                                <LineSegment Point="17,15" />
+
+                                <!--  Rechte untere Rundung  -->
+                                <QuadraticBezierSegment Point1="17,17" Point2="15,17" />
+
+                                <!--  Untere Kante  -->
+                                <LineSegment Point="9,17" />
+
+                                <!--  Linke untere Rundung  -->
+                                <QuadraticBezierSegment Point1="7,17" Point2="7,15" />
+
+                                <!--  Linke Seite  -->
+                                <LineSegment Point="7,9" />
+
+                                <!--  Linke obere Rundung  -->
+                                <QuadraticBezierSegment Point1="7,7" Point2="9,7" />
+
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Zahnrad / Factory-Symbol  -->
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+
+                            <!--  Mittelpunkt  -->
+                            <EllipseGeometry
+                                Center="12,12"
+                                RadiusX="2"
+                                RadiusY="2" />
+
+                            <!--  Zähne  -->
+                            <RectangleGeometry Rect="11.5,7.8,1,2" />
+                            <RectangleGeometry Rect="11.5,14.2,1,2" />
+                            <RectangleGeometry Rect="14.2,11.5,2,1" />
+                            <RectangleGeometry Rect="7.8,11.5,2,1" />
+
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Verbindungslinien  -->
+                <GeometryDrawing Brush="#FF7FB3FF">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+
+                            <!--  Rechts  -->
+                            <RectangleGeometry Rect="17,11.3,3,1.4" />
+
+                            <!--  Links  -->
+                            <RectangleGeometry Rect="4,11.3,3,1.4" />
+
+                            <!--  Unten  -->
+                            <RectangleGeometry Rect="11.3,17,1.4,3" />
+
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Erzeugte Instanzen  -->
+                <GeometryDrawing Brush="#FFBFD9FF">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+
+                            <EllipseGeometry
+                                Center="22,12"
+                                RadiusX="1.8"
+                                RadiusY="1.8" />
+                            <EllipseGeometry
+                                Center="2,12"
+                                RadiusX="1.8"
+                                RadiusY="1.8" />
+                            <EllipseGeometry
+                                Center="12,22"
+                                RadiusX="1.8"
+                                RadiusY="1.8" />
+
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="IconSingletonPattern">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+
+                <!--  Zentraler Singleton-Kreis  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <EllipseGeometry
+                            Center="12,12"
+                            RadiusX="5"
+                            RadiusY="5" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Inneres "1" Symbol  -->
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="11,8.5,2,7" />
+                            <RectangleGeometry Rect="10,14.5,4,1.5" />
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Verbindungslinien  -->
+                <GeometryDrawing Brush="#FF7FB3FF">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+
+                            <!--  Oben  -->
+                            <RectangleGeometry Rect="11.2,1.5,1.6,4" />
+
+                            <!--  Rechts  -->
+                            <RectangleGeometry Rect="18.5,11.2,4,1.6" />
+
+                            <!--  Unten  -->
+                            <RectangleGeometry Rect="11.2,18.5,1.6,4" />
+
+                            <!--  Links  -->
+                            <RectangleGeometry Rect="1.5,11.2,4,1.6" />
+
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Kleine Referenz-Knoten  -->
+                <GeometryDrawing Brush="#FFBFD9FF">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+
+                            <EllipseGeometry
+                                Center="12,1.5"
+                                RadiusX="1.5"
+                                RadiusY="1.5" />
+                            <EllipseGeometry
+                                Center="22.5,12"
+                                RadiusX="1.5"
+                                RadiusY="1.5" />
+                            <EllipseGeometry
+                                Center="12,22.5"
+                                RadiusX="1.5"
+                                RadiusY="1.5" />
+                            <EllipseGeometry
+                                Center="1.5,12"
+                                RadiusX="1.5"
+                                RadiusY="1.5" />
+
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
     <DrawingImage x:Key="IconEventAggregator">
         <DrawingImage.Drawing>
             <DrawingGroup>
