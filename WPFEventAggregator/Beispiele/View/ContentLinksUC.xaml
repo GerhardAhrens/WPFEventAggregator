@@ -12,12 +12,48 @@
     <Grid
         Background="LightGreen"
         ColumnDefinitions="*"
-        RowDefinitions="40,*">
+        RowDefinitions="40,Auto,*">
         <TextBlock
             Margin="20,0,0,0"
             HorizontalAlignment="Left"
             FontSize="22"
             FontWeight="Medium"
             Text="Linke Seite" />
+
+        <GroupBox
+            x:Name="UpdateStatus"
+            Grid.Row="1"
+            Margin="5"
+            Padding="5">
+            <GroupBox.Template>
+                <ControlTemplate TargetType="GroupBox">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="4">
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </GroupBox.Template>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Status: " />
+                <TextBox
+                    x:Name="StatusText"
+                    Width="200"
+                    Text="{Binding Path=StatusMessage, FallbackValue=~StatusMeldung}" />
+
+                <Button
+                    Width="30"
+                    Height="30"
+                    Margin="10,0,0,0"
+                    Padding="5,2"
+                    ToolTip="Status senden"
+                    Command="{Binding Path=SendStatusCommand}">
+                    <Image Source="{StaticResource ResourceKey=IconExecute}" Stretch="Fill" />
+                </Button>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </base:UserControlBase>

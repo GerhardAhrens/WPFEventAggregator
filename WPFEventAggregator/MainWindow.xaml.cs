@@ -58,6 +58,7 @@ namespace WPFEventAggregator
                 this.Message.Hinweis("Event Aggregator Demo", evt.Message);
             });
 
+            App.EventAgg.Subscribe<StatusEvent>(async (evt, ct) => this.OnUpdateStatusBar(evt));
         }
 
         private async void OnSendMessage()
@@ -197,6 +198,12 @@ namespace WPFEventAggregator
             this.SettingsPopup.SetValue(MaskLayerBehavior.IsOpenProperty, false);
         }
         #endregion Command Event Handler
+
+        private void OnUpdateStatusBar(StatusEvent evt)
+        {
+            StatusbarMain.Statusbar.Notification = evt.Message;
+        }
+
 
         private void ChangeControl(string currentWorkContent)
         {

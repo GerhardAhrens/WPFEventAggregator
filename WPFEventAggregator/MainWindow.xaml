@@ -118,6 +118,16 @@
                     Height="50"
                     Margin="5,0,0,0"
                     HorizontalAlignment="Left"
+                    Command="{Binding Path=ChangeDialogCommand}"
+                    ToolTip="Zurück zum Home Dialog">
+                    <Image Source="{StaticResource ResourceKey=IconHome}" Stretch="Uniform" />
+                </Button>
+
+                <Button
+                    Width="50"
+                    Height="50"
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Left"
                     Command="{Binding Path=SendMessageCommand}"
                     ToolTip="Nachricht verschicken">
                     <Image Source="{StaticResource ResourceKey=IconMessage}" Stretch="Uniform" />
@@ -131,16 +141,6 @@
                     Command="{Binding Path=StartCommand}"
                     ToolTip="CliDemo für Event Aggregator">
                     <Image Source="{StaticResource ResourceKey=IconEventAggregator}" Stretch="Uniform" />
-                </Button>
-
-                <Button
-                    Width="50"
-                    Height="50"
-                    Margin="5,0,0,0"
-                    HorizontalAlignment="Left"
-                    Command="{Binding Path=ChangeDialogCommand}"
-                    ToolTip="Zurück zum Home Dialog">
-                    <Image Source="{StaticResource ResourceKey=IconHome}" Stretch="Uniform" />
                 </Button>
 
                 <Button
