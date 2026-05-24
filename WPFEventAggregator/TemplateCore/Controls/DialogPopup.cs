@@ -31,13 +31,14 @@
 
         protected override void OnOpened(EventArgs e)
         {
-            UpdateWindow();
+            this.UpdateWindow();
         }
 
         private void UpdateWindow()
         {
             var hwnd = ((HwndSource)PresentationSource.FromVisual(this)).Handle;
             RECT rect;
+
             if (GetWindowRect(hwnd, out rect))
             {
                 FrameworkElement element = this.PlacementTarget as FrameworkElement;
@@ -64,8 +65,10 @@
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
+
         private static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
         [DllImport("user32", EntryPoint = "SetWindowPos")]
+
         private static extern int SetWindowPos(IntPtr hWnd, int hwndInsertAfter, int x, int y, int cx, int cy, int wFlags);
         #endregion
     }

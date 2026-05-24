@@ -237,7 +237,7 @@ namespace WPFEventAggregator
 
             else if (variante == 4)
             {
-                object parm = $"Einfacher Aufruf: \n var response = new DialogService<DialogWindow>().ShowDialog();";
+                object parm = $"Einfacher Aufruf; Animation fading: \n var response = new DialogService<DialogWindow>()\n.WithFadeAnimation()\n.ShowDialog();";
                 var response = new DialogService<DialogWindow>(parm).WithOwner(this).WithFadeAnimation().ShowDialog();
                 if (response.DialogResult == true)
                 {

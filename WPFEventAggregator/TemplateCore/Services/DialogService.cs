@@ -1,9 +1,8 @@
 ﻿namespace WPFEventAggregator.TemplateCore
 {
     using System;
-    using System.Runtime.InteropServices;
     using System.Windows;
-    using System.Windows.Interop;
+    using System.Windows.Controls;
     using System.Windows.Media;
     using System.Windows.Media.Animation;
 
@@ -179,7 +178,7 @@
                     }
                 };
 
-                if (this._enableFadeAnimation)
+                if (this._enableFadeAnimation == true)
                 {
                     AttachClosingAnimation(window);
                 }
@@ -275,9 +274,7 @@
                 Duration = _fadeInDuration
             };
 
-            window.BeginAnimation(
-                UIElement.OpacityProperty,
-                animation);
+            window.BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
         private void AttachClosingAnimation(Window window)
@@ -307,9 +304,7 @@
                     window.Close();
                 };
 
-                window.BeginAnimation(
-                    UIElement.OpacityProperty,
-                    animation);
+                window.BeginAnimation(UIElement.OpacityProperty, animation);
             };
         }
 
