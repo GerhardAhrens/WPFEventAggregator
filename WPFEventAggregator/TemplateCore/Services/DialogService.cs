@@ -2,7 +2,6 @@
 {
     using System;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Media;
     using System.Windows.Media.Animation;
 
@@ -170,9 +169,9 @@
 
                 window.Loaded += (_, _) =>
                 {
-                    ApplyCentering(window);
+                    this.ApplyCentering(window);
 
-                    if (this._enableFadeAnimation)
+                    if (this._enableFadeAnimation == true)
                     {
                         FadeIn(window);
                     }
@@ -180,8 +179,9 @@
 
                 if (this._enableFadeAnimation == true)
                 {
-                    AttachClosingAnimation(window);
+                    this.AttachClosingAnimation(window);
                 }
+
                 return window;
             }
             catch (Exception ex)
@@ -283,7 +283,7 @@
 
             window.Closing += (s, e) =>
             {
-                if (isClosingAnimated)
+                if (isClosingAnimated == true)
                 {
                     return;
                 }
@@ -316,8 +316,7 @@
     /// Rückgabeobjekt für ShowDialog().
     /// </summary>
     /// <typeparam name="TWindow"></typeparam>
-    public class DialogResponse<TWindow>
-        where TWindow : Window
+    public class DialogResponse<TWindow> where TWindow : Window
     {
         public TWindow Window { get; }
 

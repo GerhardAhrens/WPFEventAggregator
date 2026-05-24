@@ -16,16 +16,12 @@
 namespace WPFEventAggregator
 {
     using System.ComponentModel;
-    using System.Runtime.InteropServices;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
 
     using WPFEventAggregator.Beispiele;
-    using WPFEventAggregator.Features;
     using WPFEventAggregator.TemplateCore;
-
-    using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -239,6 +235,7 @@ namespace WPFEventAggregator
             {
                 object parm = $"Einfacher Aufruf; Animation fading: \n var response = new DialogService<DialogWindow>()\n.WithFadeAnimation()\n.ShowDialog();";
                 var response = new DialogService<DialogWindow>(parm).WithOwner(this).WithFadeAnimation().ShowDialog();
+
                 if (response.DialogResult == true)
                 {
                     // OK
