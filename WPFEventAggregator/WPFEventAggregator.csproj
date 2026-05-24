@@ -19,6 +19,7 @@
     <AssemblyName>WPFEventAggregator</AssemblyName>
     <AssemblyTitle>MinimalWPF</AssemblyTitle>
     <RootNamespace>WPFEventAggregator</RootNamespace>
+    <UseWindowsForms>True</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>

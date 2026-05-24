@@ -146,6 +146,16 @@
                 <Button
                     Width="50"
                     Height="50"
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Left"
+                    Command="{Binding Path=DemoDialogServiceCommand}"
+                    ToolTip="Demo für DialogService">
+                    <Image Source="{StaticResource ResourceKey=IconDialog}" Stretch="Uniform" />
+                </Button>
+
+                <Button
+                    Width="50"
+                    Height="50"
                     Margin="0,0,5,0"
                     HorizontalAlignment="Right"
                     Command="{Binding Path=InformationCommand}"

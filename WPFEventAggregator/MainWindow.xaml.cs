@@ -16,12 +16,16 @@
 namespace WPFEventAggregator
 {
     using System.ComponentModel;
+    using System.Runtime.InteropServices;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
 
     using WPFEventAggregator.Beispiele;
     using WPFEventAggregator.Features;
+    using WPFEventAggregator.TemplateCore;
+
+    using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -40,6 +44,7 @@ namespace WPFEventAggregator
             this.StartCommand = new CommandBase(this.OnStart);
             this.ChangeDialogCommand = new CommandBase(this.OnChangeDialog);
             this.SendMessageCommand = new CommandBase(this.OnSendMessage);
+            this.DemoDialogServiceCommand = new CommandBase(this.OnDemoDialogService);
 
             this.InformationCommand = new CommandBase(this.OnInformationPopup);
             this.CloseInformationPopupCommand = new CommandBase(this.OnCloseInformation);
@@ -74,6 +79,7 @@ namespace WPFEventAggregator
         public CommandBase StartCommand { get; private set; }
         public CommandBase ChangeDialogCommand { get; private set; }
         public CommandBase SendMessageCommand { get; private set; }
+        public CommandBase DemoDialogServiceCommand { get; private set; }
         public CommandBase InformationCommand { get; private set; }
         public CommandBase CloseInformationPopupCommand { get; private set; }
         public CommandBase SettingsCommand { get; private set; }
@@ -178,6 +184,72 @@ namespace WPFEventAggregator
             this.ChangeControl("Home");
         }
 
+        private void OnDemoDialogService()
+        {
+            int variante = 4;
+            if (variante == 1)
+            {
+                object parm = $"Einfacher Aufruf: \n var response = new DialogService<DialogWindow>().ShowDialog();";
+                var response = new DialogService<DialogWindow>(parm).WithOwner(this).ShowDialog();
+                if (response.DialogResult == true)
+                {
+                    // OK
+                }
+                else
+                {
+                    // Abbrechen
+                }
+            }
+            else if (variante == 2)
+            {
+                object parm = $"Aufruf mit Fluent-API: \n var response = new DialogService<DialogWindow>()\n.WithTitle(\"Dialog Window\")\n.WithSize(700, 450)\n.CenterToScreen()\n.WithFont(\"Segoe UI\")\n.TopMost()\n.ShowDialog();";
+                var response = new DialogService<DialogWindow>(parm)
+                    .WithTitle("Dialog Window")
+                    .WithSize(700, 450)
+                    .CenterToScreen()
+                    .WithFont("Segoe UI")
+                    .TopMost()
+                    .ShowDialog();
+                if (response.DialogResult == true)
+                {
+                    // OK
+                }
+                else
+                {
+                    // Abbrechen
+                }
+            }
+            else if (variante == 3)
+            {
+                object parm = $"Aufruf mit Konstruktor Parameter: \n var response = new DialogService<DialogWindow>()\n.WithTitle(\"Benutzer\")\n.ShowDialog();";
+                var response = new DialogService<DialogWindow>(parm,"Max Mustermann", 42)
+                    .WithTitle("Benutzer")
+                    .ShowDialog();
+                if (response.DialogResult == true)
+                {
+                    // OK
+                }
+                else
+                {
+                    // Abbrechen
+                }
+            }
+
+            else if (variante == 4)
+            {
+                object parm = $"Einfacher Aufruf: \n var response = new DialogService<DialogWindow>().ShowDialog();";
+                var response = new DialogService<DialogWindow>(parm).WithOwner(this).WithFadeAnimation().ShowDialog();
+                if (response.DialogResult == true)
+                {
+                    // OK
+                }
+                else
+                {
+                    // Abbrechen
+                }
+            }
+        }
+
         private void OnInformationPopup()
         {
             this.InformationPopup.SetValue(MaskLayerBehavior.IsOpenProperty, true);
@@ -199,11 +271,12 @@ namespace WPFEventAggregator
         }
         #endregion Command Event Handler
 
+#pragma warning disable CA1822 // Member als statisch markieren
         private void OnUpdateStatusBar(StatusEvent evt)
         {
             StatusbarMain.Statusbar.Notification = evt.Message;
         }
-
+#pragma warning restore CA1822 // Member als statisch markieren
 
         private void ChangeControl(string currentWorkContent)
         {
