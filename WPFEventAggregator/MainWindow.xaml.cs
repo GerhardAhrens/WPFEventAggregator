@@ -182,7 +182,7 @@ namespace WPFEventAggregator
 
         private void OnDemoDialogService()
         {
-            int variante = 4;
+            int variante = 5;
             if (variante == 1)
             {
                 object parm = $"Einfacher Aufruf: \n var response = new DialogService<DialogWindow>().ShowDialog();";
@@ -230,11 +230,24 @@ namespace WPFEventAggregator
                     // Abbrechen
                 }
             }
-
             else if (variante == 4)
             {
                 object parm = $"Einfacher Aufruf; Animation fading: \n var response = new DialogService<DialogWindow>()\n.WithFadeAnimation()\n.ShowDialog();";
                 var response = new DialogService<DialogWindow>(parm).WithOwner(this).WithFadeAnimation().ShowDialog();
+
+                if (response.DialogResult == true)
+                {
+                    // OK
+                }
+                else
+                {
+                    // Abbrechen
+                }
+            }
+            else if (variante == 5)
+            {
+                object parm = $"Einfacher Aufruf: \n var response = new DialogService<DialogWindow>()\n.Show();";
+                var response = new DialogService<DialogWindow>(parm).Show();
 
                 if (response.DialogResult == true)
                 {

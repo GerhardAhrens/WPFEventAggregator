@@ -1,31 +1,31 @@
 ﻿namespace WPFEventAggregator.Beispiele
 {
     using System.ComponentModel;
+    using System.Data;
     using System.Windows;
 
     /// <summary>
-    /// Interaktionslogik für DialogWindow.xaml
+    /// Interaktionslogik für ListDialogWindow.xaml
     /// </summary>
-    public partial class DialogWindow : WindowBase
+    public partial class ListDialogWindow : WindowBase
     {
-        public DialogWindow(string param)
+        public ListDialogWindow(string param)
         {
             this.InitializeComponent();
             WeakEventManager<WindowBase, RoutedEventArgs>.AddHandler(this, "Loaded", this.OnLoaded);
             WeakEventManager<WindowBase, CancelEventArgs>.AddHandler(this, "Closing", this.OnWindowClosing);
-            this.WindowTitel = LocalizationValue.Get("DialogWindowsTitelZeile");
+            this.WindowTitel = param;
             this.DataContext = this;
-            this.DemoText = param;
         }
 
-        public DialogWindow(string param,string name, int age)
+        public ListDialogWindow(string param,DataTable table)
         {
             this.InitializeComponent();
             WeakEventManager<WindowBase, RoutedEventArgs>.AddHandler(this, "Loaded", this.OnLoaded);
             WeakEventManager<WindowBase, CancelEventArgs>.AddHandler(this, "Closing", this.OnWindowClosing);
-            this.WindowTitel = LocalizationValue.Get("DialogWindowsTitelZeile");
+            this.WindowTitel = param;
+            this.DemoTabelle = table;
             this.DataContext = this;
-            this.DemoText = $"{param}\nName: {name}, Age: {age}";
         }
 
         public string WindowTitel
@@ -34,9 +34,9 @@
             set => base.SetValue(value);
         }
 
-        public string DemoText
+        public DataTable DemoTabelle
         {
-            get => base.GetValue<string>();
+            get => base.GetValue<DataTable>();
             set => base.SetValue(value);
         }
 

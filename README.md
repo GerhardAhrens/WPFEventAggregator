@@ -19,6 +19,9 @@ App.EventAgg.Subscribe<StatusEvent>(async (evt, ct) => this.OnUpdateStatusBar(ev
 ````
 Der Übergebene Typ z.B. `StatusEvent' in Subscribe gibt an, welche Art von Nachrichten die Klasse empfangen möchte. In diesem Beispiel abonnieren die Klassen auf Nachrichten vom Typ "StatusEvent". Wenn eine Nachricht dieses Typs gesendet wird, wird die Methode "OnUpdateStatusBar" aufgerufen, um die Statusleiste zu aktualisieren.
 
+Von den beiden UserControls ContentLinksUC und ContentRechtsUC gibt es jeweils einen Button, der eine Nachricht sendet, wenn er geklickt wird. Die Nachricht enthält Informationen darüber, von welchem UserControl sie gesendet wurde. Wenn die Nachricht empfangen wird, wird die Statusleiste in MainWindow aktualisiert, um anzuzeigen, welche Nachricht empfangen wurde.
+<img src="Demo_A.png" style="width:650px;"/>
+
 
 # Möglichkeiten
 Über den EventAggregator können Nachrichten mit einem bestimmten Typ gesendet werden, und alle Klassen, die diesen Typ abonnieren, erhalten die Nachricht. In diesem Beispiel gibt es zwei Nachrichten: "Nachricht von Links" und "Nachricht von Rechts". Wenn eine Nachricht gesendet wird, wird sie an alle Abonnenten weitergeleitet, die auf diesen Nachrichtentyp hören.

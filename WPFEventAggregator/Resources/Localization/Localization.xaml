@@ -8,4 +8,6 @@
     <system:String x:Key="MessageExit_Titel_DE">Beenden</system:String>
     <system:String x:Key="MessageExit_Text_DE">Wollen Sie die Anwendung beenden? ({0})</system:String>
 
+    <system:String x:Key="DialogWindowsTitelZeile">Das ist ein Window vom DialogService</system:String>
+
 </ResourceDictionary>

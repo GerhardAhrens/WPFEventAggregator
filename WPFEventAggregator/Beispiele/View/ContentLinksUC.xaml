@@ -42,6 +42,7 @@
                 <TextBox
                     x:Name="StatusText"
                     Width="200"
+                    VerticalContentAlignment="Center"
                     Text="{Binding Path=StatusMessage, FallbackValue=~StatusMeldung}" />
 
                 <Button
@@ -49,8 +50,8 @@
                     Height="30"
                     Margin="10,0,0,0"
                     Padding="5,2"
-                    ToolTip="Status senden"
-                    Command="{Binding Path=SendStatusCommand}">
+                    Command="{Binding Path=SendStatusCommand}"
+                    ToolTip="Status senden">
                     <Image Source="{StaticResource ResourceKey=IconExecute}" Stretch="Fill" />
                 </Button>
             </StackPanel>
