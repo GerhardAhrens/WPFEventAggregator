@@ -12,7 +12,7 @@
     <Grid
         Background="LightGreen"
         ColumnDefinitions="*"
-        RowDefinitions="40,Auto,*">
+        RowDefinitions="40,Auto,Auto,*">
         <TextBlock
             Margin="20,0,0,0"
             HorizontalAlignment="Left"
@@ -53,6 +53,38 @@
                     Command="{Binding Path=SendStatusCommand}"
                     ToolTip="Status senden">
                     <Image Source="{StaticResource ResourceKey=IconExecute}" Stretch="Fill" />
+                </Button>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox
+            x:Name="ShowTable"
+            Grid.Row="2"
+            Margin="5"
+            Padding="5">
+            <GroupBox.Template>
+                <ControlTemplate TargetType="GroupBox">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="4">
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </GroupBox.Template>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Eine Tabelle an Dialog senden: " />
+
+                <Button
+                    Width="40"
+                    Height="30"
+                    Margin="10,0,0,0"
+                    Padding="5,2"
+                    Command="{Binding Path=SendTableCommand}"
+                    ToolTip="Tabelle senden">
+                    <Image Source="{StaticResource ResourceKey=IconSendTo}" Stretch="Uniform" />
                 </Button>
             </StackPanel>
         </GroupBox>

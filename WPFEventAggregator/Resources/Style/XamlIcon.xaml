@@ -68,6 +68,252 @@
     </DrawingImage>
 
     <!--#region Farbige Icon Symbole auf Basis von DrawingImage-->
+    <DrawingImage x:Key="IconOpenTable">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+
+                <!--  Tabellen-Hintergrund  -->
+                <GeometryDrawing Brush="#FFFFFFFF">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="4,4">
+
+                                <!--  Oben  -->
+                                <LineSegment Point="18,4" />
+
+                                <!--  Rechte obere Rundung  -->
+                                <QuadraticBezierSegment Point1="20,4" Point2="20,6" />
+
+                                <!--  Rechts  -->
+                                <LineSegment Point="20,18" />
+
+                                <!--  Rechte untere Rundung  -->
+                                <QuadraticBezierSegment Point1="20,20" Point2="18,20" />
+
+                                <!--  Unten  -->
+                                <LineSegment Point="4,20" />
+
+                                <!--  Linke untere Rundung  -->
+                                <QuadraticBezierSegment Point1="2,20" Point2="2,18" />
+
+                                <!--  Links  -->
+                                <LineSegment Point="2,6" />
+
+                                <!--  Linke obere Rundung  -->
+                                <QuadraticBezierSegment Point1="2,4" Point2="4,4" />
+
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Tabellenrahmen  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+
+                            <!--  Außenrahmen  -->
+                            <RectangleGeometry Rect="2,4,18,16" />
+
+                            <!--  Spalten  -->
+                            <RectangleGeometry Rect="7,4,1,16" />
+                            <RectangleGeometry Rect="13,4,1,16" />
+
+                            <!--  Zeilen  -->
+                            <RectangleGeometry Rect="2,9,18,1" />
+                            <RectangleGeometry Rect="2,14,18,1" />
+
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Öffnen-Pfeil  -->
+                <GeometryDrawing Brush="#FF7FB3FF">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure StartPoint="16,2">
+                                <LineSegment Point="22,2" />
+                                <LineSegment Point="22,8" />
+                            </PathFigure>
+
+                            <PathFigure IsClosed="True" StartPoint="15,9">
+                                <LineSegment Point="22,2" />
+                                <LineSegment Point="19,2" />
+                                <LineSegment Point="22,5" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="IconOpenDialog">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+
+                <!--  Hintergrundfenster  -->
+                <GeometryDrawing Brush="#FFDCE6F2">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="4,5">
+
+                                <!--  Oben  -->
+                                <LineSegment Point="20,5" />
+
+                                <!--  Rechte obere Rundung  -->
+                                <QuadraticBezierSegment Point1="22,5" Point2="22,7" />
+
+                                <!--  Rechts  -->
+                                <LineSegment Point="22,17" />
+
+                                <!--  Rechte untere Rundung  -->
+                                <QuadraticBezierSegment Point1="22,19" Point2="20,19" />
+
+                                <!--  Unten  -->
+                                <LineSegment Point="4,19" />
+
+                                <!--  Linke untere Rundung  -->
+                                <QuadraticBezierSegment Point1="2,19" Point2="2,17" />
+
+                                <!--  Links  -->
+                                <LineSegment Point="2,7" />
+
+                                <!--  Linke obere Rundung  -->
+                                <QuadraticBezierSegment Point1="2,5" Point2="4,5" />
+
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Fenstertitel  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="2,5,20,4" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Dialogfenster  -->
+                <GeometryDrawing Brush="#FFFFFFFF">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="8,10">
+
+                                <!--  Oben  -->
+                                <LineSegment Point="18,10" />
+
+                                <!--  Rechte obere Rundung  -->
+                                <QuadraticBezierSegment Point1="19,10" Point2="19,11" />
+
+                                <!--  Rechts  -->
+                                <LineSegment Point="19,16" />
+
+                                <!--  Rechte untere Rundung  -->
+                                <QuadraticBezierSegment Point1="19,17" Point2="18,17" />
+
+                                <!--  Unten  -->
+                                <LineSegment Point="8,17" />
+
+                                <!--  Linke untere Rundung  -->
+                                <QuadraticBezierSegment Point1="7,17" Point2="7,16" />
+
+                                <!--  Links  -->
+                                <LineSegment Point="7,11" />
+
+                                <!--  Linke obere Rundung  -->
+                                <QuadraticBezierSegment Point1="7,10" Point2="8,10" />
+
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Dialog-Text  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+
+                            <RectangleGeometry Rect="9,12,7,1" />
+                            <RectangleGeometry Rect="9,14,5,1" />
+
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Öffnen-Pfeil  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="16,20">
+                                <LineSegment Point="22,20" />
+                                <LineSegment Point="22,14" />
+                                <LineSegment Point="20,16" />
+                                <LineSegment Point="17,13" />
+                                <LineSegment Point="15,15" />
+                                <LineSegment Point="18,18" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="IconSendTo">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+
+                <!--  Ausgangspunkt  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <EllipseGeometry
+                            Center="5,12"
+                            RadiusX="3"
+                            RadiusY="3" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Verbindungslinie  -->
+                <GeometryDrawing Brush="#FF7FB3FF">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure StartPoint="8,12">
+                                <LineSegment Point="17,12" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Pfeil  -->
+                <GeometryDrawing Brush="#FF4A90E2">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="14,8">
+                                <LineSegment Point="22,12" />
+                                <LineSegment Point="14,16" />
+                                <LineSegment Point="16,12" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+                <!--  Zielpunkt  -->
+                <GeometryDrawing Brush="#FFBFD9FF">
+                    <GeometryDrawing.Geometry>
+                        <EllipseGeometry
+                            Center="21,12"
+                            RadiusX="2.2"
+                            RadiusY="2.2" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
     <DrawingImage x:Key="IconZweiZahlen">
         <DrawingImage.Drawing>
             <DrawingGroup>

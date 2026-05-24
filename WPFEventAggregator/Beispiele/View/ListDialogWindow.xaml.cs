@@ -16,16 +16,8 @@
             WeakEventManager<WindowBase, CancelEventArgs>.AddHandler(this, "Closing", this.OnWindowClosing);
             this.WindowTitel = param;
             this.DataContext = this;
-        }
 
-        public ListDialogWindow(string param,DataTable table)
-        {
-            this.InitializeComponent();
-            WeakEventManager<WindowBase, RoutedEventArgs>.AddHandler(this, "Loaded", this.OnLoaded);
-            WeakEventManager<WindowBase, CancelEventArgs>.AddHandler(this, "Closing", this.OnWindowClosing);
-            this.WindowTitel = param;
-            this.DemoTabelle = table;
-            this.DataContext = this;
+            App.EventAgg.Subscribe<TableEvent>(async (evt, ct) => this.OnSendTable(evt));
         }
 
         public string WindowTitel
@@ -58,5 +50,17 @@
             }
         }
         #endregion WindowEventHandler
+
+        private void OnSendTable(TableEvent evt)
+        {
+            if (App.EventAgg.IsSubscription<TableEvent>() == true)
+            {
+                if (evt != null && evt.MessageAsTable != null)
+                {
+                    this.DemoTabelle = evt.MessageAsTable;
+                }
+            }
+        }
+
     }
 }

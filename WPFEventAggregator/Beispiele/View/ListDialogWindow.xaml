@@ -15,14 +15,10 @@
     mc:Ignorable="d">
     <Grid>
         <!--  Inhalte zum Window  -->
-        <TextBlock
-            Width="600"
-            Height="300"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="14"
-            FontWeight="Medium"
-            Text="{Binding Path=DemoText, FallbackValue=~Dialog Fenster}"
-            TextWrapping="WrapWithOverflow" />
+        <DataGrid
+            Margin="20"
+            AutoGenerateColumns="True"
+            IsReadOnly="True"
+            ItemsSource="{Binding Path=DemoTabelle, FallbackValue={x:Null}}" />
     </Grid>
 </base:WindowBase>

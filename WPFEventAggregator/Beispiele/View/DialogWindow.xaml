@@ -16,8 +16,6 @@
     <Grid>
         <!--  Inhalte zum Window  -->
         <TextBlock
-            Width="600"
-            Height="300"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="14"

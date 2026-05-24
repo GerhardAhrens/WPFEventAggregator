@@ -41,6 +41,7 @@ namespace WPFEventAggregator
             this.ChangeDialogCommand = new CommandBase(this.OnChangeDialog);
             this.SendMessageCommand = new CommandBase(this.OnSendMessage);
             this.DemoDialogServiceCommand = new CommandBase(this.OnDemoDialogService);
+            this.SendToCommand = new CommandBase(this.OnSendTo);
 
             this.InformationCommand = new CommandBase(this.OnInformationPopup);
             this.CloseInformationPopupCommand = new CommandBase(this.OnCloseInformation);
@@ -76,6 +77,7 @@ namespace WPFEventAggregator
         public CommandBase ChangeDialogCommand { get; private set; }
         public CommandBase SendMessageCommand { get; private set; }
         public CommandBase DemoDialogServiceCommand { get; private set; }
+        public CommandBase SendToCommand { get; private set; }
         public CommandBase InformationCommand { get; private set; }
         public CommandBase CloseInformationPopupCommand { get; private set; }
         public CommandBase SettingsCommand { get; private set; }
@@ -182,7 +184,7 @@ namespace WPFEventAggregator
 
         private void OnDemoDialogService()
         {
-            int variante = 5;
+            int variante = 6;
             if (variante == 1)
             {
                 object parm = $"Einfacher Aufruf: \n var response = new DialogService<DialogWindow>().ShowDialog();";
@@ -258,6 +260,30 @@ namespace WPFEventAggregator
                     // Abbrechen
                 }
             }
+            else if (variante == 6)
+            {
+                object parm = $"Einfacher Aufruf: \n var response = new DialogService<DialogWindow>()\nConfigure(w => \n{{ w.Width = 300;}})\n.Show();";
+                var response = new DialogService<DialogWindow>(parm).Configure(w =>
+                {
+                    w.Width = 300;
+                    w.Height = 200;
+                    w.Background = System.Windows.Media.Brushes.AliceBlue;
+                }).Show();
+
+                if (response.DialogResult == true)
+                {
+                    // OK
+                }
+                else
+                {
+                    // Abbrechen
+                }
+            }
+        }
+
+        private void OnSendTo()
+        {
+            _ = new DialogService<ListDialogWindow>("Tabelle anzeigen").Show();
         }
 
         private void OnInformationPopup()

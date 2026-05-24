@@ -130,24 +130,41 @@
 
         #region Show Methods
 
-        public TWindow Show()
+        public DialogResponse<TWindow> Show()
         {
             var window = this.CreateWindow();
 
-            window.Show();
+            bool isModal = IsModal(window);
 
-            return window;
+            // Aktiviert den Topmost-Modus und holt das Fenster nach vorne
+            window.Topmost = true;
+            window.Show();
+            window.Activate();
+            window.Topmost = false;
+
+            return new DialogResponse<TWindow>(window, null, isModal);
         }
 
         public DialogResponse<TWindow> ShowDialog()
         {
             var window = this.CreateWindow();
-
+            bool isModal = IsModal(window);
             bool? result = window.ShowDialog();
 
-            return new DialogResponse<TWindow>(window, result);
+            return new DialogResponse<TWindow>(window, result, isModal);
         }
 
+        private static bool IsModal(Window window)
+        {
+            if (window.Owner != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         #endregion
 
         #region Window Creation
@@ -321,11 +338,14 @@
         public TWindow Window { get; }
 
         public bool? DialogResult { get; }
+        
+        public bool IsModal { get; }
 
-        public DialogResponse(TWindow window, bool? dialogResult)
+        public DialogResponse(TWindow window, bool? dialogResult, bool isModal)
         {
             Window = window;
             DialogResult = dialogResult;
+            IsModal = isModal;  
         }
     }
 }
