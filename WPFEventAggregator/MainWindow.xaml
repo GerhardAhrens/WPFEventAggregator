@@ -153,7 +153,8 @@
                     Margin="5,0,0,0"
                     HorizontalAlignment="Left"
                     Command="{Binding Path=DemoDialogServiceCommand}"
-                    ToolTip="Demo für DialogService">
+                    ToolTip="Demo für DialogService"
+                    Visibility="Collapsed">
                     <Image Source="{StaticResource ResourceKey=IconDialog}" Stretch="Uniform" />
                 </Button>
 
@@ -164,7 +165,8 @@
                     HorizontalAlignment="Left"
                     Background="Transparent"
                     Command="{Binding Path=SendToCommand}"
-                    ToolTip="Demo für SendTo">
+                    ToolTip="Demo für SendTo"
+                    Visibility="Collapsed">
                     <Image Source="{StaticResource ResourceKey=IconOpenDialog}" Stretch="Uniform" />
                 </Button>
 
